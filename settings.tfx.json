@@ -1,0 +1,10 @@
+{
+  "serviceUrl": "[HOST_ADDRESS]/tfs/",
+  "package": { 
+    "manifestGlobs": [ "vss-extension.json" ] 
+  },
+  "publish": {
+    "galleryUrl": "[HOST_ADDRESS]/tfs/_gallery",
+    "token": "[TOKEN]"
+  } 
+}

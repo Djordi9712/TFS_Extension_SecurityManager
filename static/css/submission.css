@@ -1,0 +1,79 @@
+﻿tbody > tr > :nth-child(4) {
+    text-align: center;
+}
+
+thead > tr > :nth-child(4) {
+    text-align: center;
+}
+
+.submission-form {
+    width: 80%;
+    margin: 3% auto;
+}
+
+.submission-text {
+    text-align: center;
+    font-size: 2em;
+}
+
+.glyphicon.glyphicon-ok-circle {
+    color: #007acc;
+}
+
+.submission-table {
+    padding-top: 2%;
+    font-size: 1.5em;
+}
+
+.submission-thead {
+    background-color: #007acc;
+    color: white;
+}
+
+.submission-tbody {
+    overflow: auto;
+    max-height: 60vh;
+}
+
+.submission-buttons {
+    width: 100%;
+    text-align: right;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-top: none;
+    background-color: whitesmoke;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.table{
+    margin-bottom: 0%
+}
+
+.submission-text {
+    text-align: center;
+    font-size: 2em;
+}
+
+.glyphicon.glyphicon-ok-circle {
+    color: #007acc;
+}
+
+.submission-table {
+    font-size: 1.5em;
+}
+
+.submission-thead {
+    background-color: #007acc;
+    color: white;
+}
+
+.submission-tbody {
+    overflow: auto;
+    max-height: 350px;
+}
+
+tr {
+    border: 1px solid #ddd;
+}
+

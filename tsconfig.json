@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "moduleResolution": "node",
+    "target": "es5",
+    "outDir": "dist/",
+    "types": [
+      "vss-web-extension-sdk",
+      "q"
+    ],
+
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "es2015.promise"
+    ]
+  },
+  "files": [
+    "src/main",
+    "src/_workItems",
+    "src/_node",
+    "src/relations",
+    "src/dev",
+    "src/projects",
+    "src/submission"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "TFS-security-manager-extension",
+  "version": "1.0.0",
+  "description": "TFS extension",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json || echo done",
+    "test": "echo \"Test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jquery": "^3.3.24",
+    "@types/q": "^1.5.1",
+    "vss-web-extension-sdk": "^5.141.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-exec": "^3.0.0",
+    "mark.js": "^8.11.1",
+    "typescript": "^3.3.3333"
+  }
+}

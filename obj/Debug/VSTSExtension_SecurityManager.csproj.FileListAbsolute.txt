@@ -1,0 +1,16 @@
+C:\Users\denis\source\repos\VSTSExtension_SecurityManager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.csprojAssemblyReference.cache
+C:\Users\denis\source\repos\VSTSExtension_SecurityManager\VSTSExtension_SecurityManager\bin\Debug\VSTSExtension_SecurityManager.dll.config
+C:\Users\denis\source\repos\VSTSExtension_SecurityManager\VSTSExtension_SecurityManager\bin\Debug\VSTSExtension_SecurityManager.dll
+C:\Users\denis\source\repos\VSTSExtension_SecurityManager\VSTSExtension_SecurityManager\bin\Debug\VSTSExtension_SecurityManager.pdb
+C:\Users\denis\source\repos\VSTSExtension_SecurityManager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.csproj.CoreCompileInputs.cache
+C:\Users\denis\source\repos\VSTSExtension_SecurityManager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.dll
+C:\Users\denis\source\repos\VSTSExtension_SecurityManager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.pdb
+C:\Users\Djordi Janssen\git\Security_TFS\TFS_Security\tfs_securitymanager\VSTSExtension_SecurityManager\bin\Debug\VSTSExtension_SecurityManager.dll.config
+C:\Users\Djordi Janssen\git\Security_TFS\TFS_Security\tfs_securitymanager\VSTSExtension_SecurityManager\bin\Debug\VSTSExtension_SecurityManager.dll
+C:\Users\Djordi Janssen\git\Security_TFS\TFS_Security\tfs_securitymanager\VSTSExtension_SecurityManager\bin\Debug\VSTSExtension_SecurityManager.pdb
+C:\Users\Djordi Janssen\git\Security_TFS\TFS_Security\tfs_securitymanager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.csprojAssemblyReference.cache
+C:\Users\Djordi Janssen\git\Security_TFS\TFS_Security\tfs_securitymanager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.csproj.CoreCompileInputs.cache
+C:\Users\Djordi Janssen\git\Security_TFS\TFS_Security\tfs_securitymanager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.dll
+C:\Users\Djordi Janssen\git\Security_TFS\TFS_Security\tfs_securitymanager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.pdb
+C:\Users\denis\TFS-Extension-SecurityManager\tfs_securitymanager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.dll
+C:\Users\denis\TFS-Extension-SecurityManager\tfs_securitymanager\VSTSExtension_SecurityManager\obj\Debug\VSTSExtension_SecurityManager.pdb

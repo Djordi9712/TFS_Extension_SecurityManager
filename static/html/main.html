@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="../../node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js-libs/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Bootstrap treeview-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="../js-libs/bootstrap-treeview.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <link href="../css/main.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap-treeview.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../node_modules/perfect-scrollbar/css/perfect-scrollbar.css" />
+
+    <script type="text/javascript">
+        VSS.init({
+            usePlatformScripts: true,
+            usePlatformStyles: true
+        });
+
+        VSS.ready(function () {
+            VSS.require(["dist/main"], function (app) {
+
+            });
+        });
+
+
+        function increase(plus) {
+            var priority = parseInt($(plus).parent().children('.badge').text())
+            priority = priority % 4 + 1
+            let nodeid = $(plus).parents('.list-group-item').attr('data-nodeid');
+            let node = $('#tree').data('treeview').getNode(nodeid);
+            node.priority = priority;
+            $.each(node.nodes, function assignpriority(_, node) {
+                node.priority = priority;
+                if (node.nodes != null) {
+                    node.nodes.forEach((node) => { assignpriority(_, node) });
+                }
+            })
+        }
+
+        function decrease(minus) {
+            var priority = parseInt($(minus).parent().children('.badge').text());
+            if (priority == 1) {
+                priority = 4;
+            } else {
+                priority--;
+            }
+            let nodeid = $(minus).parents('.list-group-item').attr('data-nodeid');
+            let node = $('#tree').data('treeview').getNode(nodeid);
+            node.priority = priority;
+            $.each(node.nodes, function assignpriority(_, node) {
+                node.priority = priority;
+                if (node.nodes != null) {
+                    node.nodes.forEach((node) => { assignpriority(_, node) });
+                }
+            })
+        }
+
+        function expandChildren(elem, event) {
+            if (event.target == elem || event.target.className == "treeItem") {
+                var nodeid = $(elem).attr('data-nodeid')
+                var node = $('#tree').data('treeview').getNode(nodeid);
+                expand(node);
+                function expand(node) {
+                    if (node.nodes != null && !node.state.expanded) {
+                        $('#tree').data('treeview').expandNode(node);
+                        node.nodes.forEach((child) => {
+                            expand(child)
+                        })
+                    }
+                    else {
+                        $('#tree').data('treeview').collapseNode(node);
+                    }
+                }
+            }
+        };
+
+
+        $(document).ready(() => {
+
+            $('#title').popover({
+                placement: "right",
+                content: "This extension makes the management of a project backlog easier by importing already existing work items from other projects.",
+                trigger: "manual"
+            })
+            $('#dropdown').popover({
+                placement: "right",
+                content: "Here you can choose the source project from which you want to import work items into the current project.",
+                trigger: "manual"
+            })
+            $('#submitbtn').popover({
+                placement: 'bottom',
+                content: 'By clicking the submit button all the checked work items will be copied into the project backlog.',
+                trigger: "manual"
+            })
+            $('#search').popover({
+                placement: 'bottom',
+                content: 'Here you can search for specific work items. Even work items which are initially collapsed will be revealed.',
+                trigger: "manual"
+            })
+            $('#check').popover({
+                placement: 'bottom',
+                content: 'This toolkit helps with the visualization of the work items and allows to check or uncheck all the work items, which speeds up the import process.',
+                trigger: "manual"
+            })
+            $('#prioritytext').popover({
+                placement: 'top',
+                content: 'The work items have a default priority of 2, which can be changed by hovering over the priority and clicking on the plus or minus that appear.',
+                trigger: "manual"
+            })
+            $('#info').popover({
+                placement: 'bottom',
+                content: 'By clicking this button you can enable and disable the help functionality.'
+            })
+
+
+            $('#info').click(() => {
+                $("li.list-group-item.node-tree").first().popover({
+                    placement: "left",
+                    content: "This is a list with all the work items existing in the selected source project. They are listed in a hierarchical order and they can be checked or expanded by clicking on them or by using the toolkit",
+                    trigger: "manual"
+                })
+                $(".glyphicon.glyphicon-info-sign").toggleClass("green");
+                $("#title").popover('toggle');
+                $("#dropdown").popover('toggle');
+                $("#check").popover('toggle');
+                $("#submitbtn").popover('toggle');
+                $("#search").popover('toggle');
+                $("#prioritytext").popover('toggle');
+                $("li.list-group-item.node-tree").first().popover('toggle');
+
+            })
+        })
+    </script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h2 class="title-text" id="title">
+                <b>Import work items to your project</b>
+            </h2>
+            <span id="info" class="glyphicon glyphicon-info-sign" />
+        </div>
+        <!--Source Project Dropdown-->
+        <div class="dropdown-wrapper">
+            <!--Title-->
+            <div>
+                <h4 class="dp-title">
+                    <b>Source Project </b>
+                </h4>
+            </div>
+            <!--Dropdown-->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" id="dropdown" type="button" data-toggle="dropdown">
+                    <span id="source-title">Select your project...</span>
+                </button>
+                <ul class="dropdown-menu" id="source-project" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation">
+                        <a role="menuitem" href="#"> Menu item</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <span class="warning" id="warning-popup"> &#9888; <b> Warning: the selected source project does not contain any work items! </b></span>
+        </div>
+    </div>
+    <div class="align">
+        <div id="table" class="table">
+                <span class="htitle"><b>Title</b></span>
+                <span><b>Work item type</b></span>
+                <span id="prioritytext"><b>Priority</b></span>
+        </div>
+        <div>
+            <div class="tree" id="tree"></div>
+        </div>
+        <div class="tools">
+            <div class="visual">
+                <span id="expand" class="tools-text"> <b>Expand All</b></span>
+                <span class="vertical-line" />
+                <span id="collapse" class="tools-text"> <b>Collapse All</b> </span>
+                <span class="vertical-line" />
+                <span id="check" class="tools-text"> <b>Check All</b> </span>
+                <span class="vertical-line" />
+                <span id="uncheck" class="tools-text"> <b>Uncheck All</b> </span>
+            </div>
+            <div id="search" class="search">
+                <i id="searchIcon" class="glyphicon glyphicon-search"></i>
+                <input type="text" class="searchBar">
+            </div>
+            <button type="button" id="submitbtn" class="btn btn-danger"><b>Submit</b></button>
+        </div>
+    </div>
+
+    <div id="alertplaceholder"></div>
+</body>
+
+</html>

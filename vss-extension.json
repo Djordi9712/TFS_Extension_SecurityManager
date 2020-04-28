@@ -1,0 +1,60 @@
+{
+  "manifestVersion": 1,
+  "id": "Security-Manager",
+  "publisher": "AlexandraDjordi",
+  "version": "2.3.2",
+  "name": "Security Manager",
+  "description": "Copy in workitems from a source project to a target project.",
+  "public": false,
+  "icons": {
+    "default": "static/images/marketplaceIcon.png"
+  },
+  "categories": [ "Code" ],
+  "scopes": [
+    "vso.project_manage",
+    "vso.serviceendpoint_manage",
+    "vso.profile_write",
+    "vso.work_full",
+    "vso.profile"
+  ],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+
+  "contributions": [
+    {
+      "id": "Import",
+      "type": "ms.vss-web.hub",
+      "description": "Import work items from one project to another",
+      "targets": [
+        "ms.vss-work-web.work-hub-group"
+      ],
+      "properties": {
+        "name": "Import Work Items",
+        "uri": "static/html/main.html"
+      }
+    }
+  ],
+
+  "files": [
+    {
+      "path": "static",
+      "addressable": true
+    },
+    {
+      "path": "node_modules/vss-web-extension-sdk/lib",
+      "addressable": true
+    },
+    {
+      "path": "dist",
+      "addressable": true
+    },
+    {
+      "path": "node_modules/perfect-scrollbar",
+      "addressable": true
+    }
+
+  ]
+}
